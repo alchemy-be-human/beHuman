@@ -11,7 +11,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:be-human.helloWorld"
+    "*"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -19,6 +19,10 @@
       {
         "command": "be-human.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "be-human.trackTime",
+        "title": "Time Tracking"
       }
     ]
   },
