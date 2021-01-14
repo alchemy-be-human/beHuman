@@ -10,7 +10,6 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:be-human.helloWorld",
     "*"
   ],
   "main": "./extension.js",
