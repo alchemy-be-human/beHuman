@@ -1,34 +1,59 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
-
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
 
 /**
  * @param {vscode.ExtensionContext} context
  */
-function activate(context) {
+const activate = async (context) => {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
+	const oneMinute = (1000 * 60)
+	const timeIncrement = (oneMinute * 15);
+
+	const startTime = new Date();
+	const localTime = startTime.toLocaleTimeString();
+
+	const response = await vscode.window.showInformationMessage('Welcome to beHuman! Would you like to be reminded to take breaks today?', 'Yes', 'No');
+	
+	if(response === 'Yes') {
+		vscode.window.showInformationMessage('Have a great day!');
+		
+		setInterval(() => {
+			const lapTime = new Date();
+
+			const incrementOfTime = Math.round((lapTime - startTime) / 60000);
+			
+
+			vscode.window.showInformationMessage(`You have been working for ${incrementOfTime} minutes.`, 'Disable');
+
+		}, timeIncrement)
+
+	} else if(response === 'No'){ 
+		vscode.window.showInformationMessage('Let\'s try again tomorrow!');
+	}
+
 	console.log('Congratulations, your extension "be-human" is now active!');
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
 	let disposable = vscode.commands.registerCommand('be-human.helloWorld', function () {
-		// The code you place here will be executed every time your command is executed
 
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from be-human!');
+		vscode.window.showInformationMessage('Welcome to beHuman!');
 	});
 
+	let trackTime = vscode.commands.registerCommand('be-human.trackTime', function () {
+
+		setInterval(() => {
+			const lapTime = new Date();
+
+			const incrementOfTime = Math.round((lapTime - startTime) / 60000);
+			
+
+			vscode.window.showInformationMessage(`You have been working for ${incrementOfTime} minutes. (This pops up every three seconds...Enjoy!)`);
+		}, 3000)
+	})
+
 	context.subscriptions.push(disposable);
+	context.subscriptions.push(trackTime);
 }
 exports.activate = activate;
 
-// this method is called when your extension is deactivated
 function deactivate() {}
 
 module.exports = {
