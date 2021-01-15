@@ -6,7 +6,12 @@ const vscode = require('vscode');
 const activate = async (context) => {
 
 	const oneMinute = (1000 * 60)
-	const timeIncrement = (oneMinute * 15);
+		//Allows user to adjust the time interval of break prompts:
+			//grabs the value from the setting.json 
+					//test in debugger to verify that Number(...) work to convert the time interval in the settings.json from a string to a integer 
+		const timeInterval = Number(vscode.workspace.getConfiguration("be-human").get("timeInterval"))
+			// changed 15 to "timeInterval"
+	const timeIncrement = (oneMinute * timeInterval);
 
 	const startTime = new Date();
 	const localTime = startTime.toLocaleTimeString();
@@ -18,7 +23,6 @@ const activate = async (context) => {
 		
 		setInterval(() => {
 			const lapTime = new Date();
-
 			const incrementOfTime = Math.round((lapTime - startTime) / 60000);
 			
 
