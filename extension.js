@@ -23,7 +23,6 @@ const activate = async (context) => {
 		
 		setInterval(() => {
 			const lapTime = new Date();
-		
 			const incrementOfTime = Math.round((lapTime - startTime) / 60000);
 			
 
