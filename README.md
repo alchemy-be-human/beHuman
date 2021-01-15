@@ -25,7 +25,15 @@ This is a test publication.
 
 Users appreciate release notes as you update your extension.
 
-### 0.0.2
+### 0.1.1
+Test release to check display name.
 
-Test release to check setting.
+### 0.1.0
+Test release to check file structure.
+
+### 0.0.2
+Test release fix publisher setup.
+
+### 0.0.1
+Test release for publisher setup.
 
