@@ -2,7 +2,7 @@
   "name": "be-human",
   "displayName": "be-human",
   "description": "",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publisher": "Not-Bot",
   "engines": {
     "vscode": "^1.52.0"
