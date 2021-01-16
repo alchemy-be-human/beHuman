@@ -12,3 +12,4 @@ We care about your wellbeing and happiness! Studies show that taking breaks aids
 MVP and Stretch Goals can be found on our Whimsical board here: beHuman. 
 
 Our app will have an admin page for our team members to be able to insert Tip data. We will not have a visible Sign Up option, which protects access.
+

@@ -9,12 +9,12 @@ const activate = async (context) => {
 		//Allows user to adjust the time interval of break prompts:
 			//grabs the value from the setting.json 
 					//test in debugger to verify that Number(...) work to convert the time interval in the settings.json from a string to a integer 
-		const timeInterval = Number(vscode.workspace.getConfiguration("be-human").get("timeInterval"))
+	const timeInterval = Number(vscode.workspace.getConfiguration("be-human").get("timeInterval"))
 			// changed 15 to "timeInterval"
 	const timeIncrement = (oneMinute * timeInterval);
-
-	const startTime = new Date();
+	let startTime = new Date();
 	const localTime = startTime.toLocaleTimeString();
+	
 
 	const response = await vscode.window.showInformationMessage('Welcome to beHuman! Would you like to be reminded to take breaks today?', 'Yes', 'No');
 	
