@@ -53,6 +53,17 @@ const activate = async (context) => {
 		}, 3000)
 	})
 
+	    // THIS IS WHERE STOP WATCH USER COMMAND FUNCTIONS BEGIN
+
+    let resetTime = vscode.commands.registerCommand('be-human.resetTime', function () {
+		 startTime = new Date();
+		 return resetTime
+    });
+
+    // const pauseStart = 
+    // const pauseStop = 
+
+
 	context.subscriptions.push(disposable);
 	context.subscriptions.push(trackTime);
 }
