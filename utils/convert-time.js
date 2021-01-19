@@ -1,5 +1,4 @@
 function convertTime(num) {
-    const number = num;
     const hours = num / 60;
     const roundHours = Math.floor(hours);
     const minutes = (hours - roundHours) * 60;
