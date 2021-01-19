@@ -10,7 +10,7 @@
   "categories": [
     "Other"
   ],
-  "icon" : "/images/largeVector",
+  "icon" : "/images/largeVector.png",
   "activationEvents": [
     "*"
   ],
