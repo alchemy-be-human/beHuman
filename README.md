@@ -28,6 +28,7 @@ This extension contributes the following settings:
 * `myExtension.enable`: enable/disable this extension
 * `myExtension.thing`: set to `blah` to do something
 
+
 ## User Settings
 
 * Enter alert time increment in minutes
@@ -35,6 +36,7 @@ This extension contributes the following settings:
 ## User Commands
 
 * 'be-human.resetTime' : reset time count
+
 
 ## Known Issues
 

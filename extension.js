@@ -12,9 +12,11 @@ const activate = async (context) => {
 	const timeInterval = Number(vscode.workspace.getConfiguration("be-human").get("timeInterval"))
 			// changed 15 to "timeInterval"
 	const timeIncrement = (oneMinute * timeInterval);
+
 	let startTime = Date.now();
 	let intervalId = null;
 	// const localTime = startTime.toLocaleTimeString();
+
 
 	const response = await vscode.window.showInformationMessage('Welcome to beHuman! Would you like to be reminded to take breaks today?', 'Yes', 'No');
 	
