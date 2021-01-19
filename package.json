@@ -28,14 +28,6 @@
       {
         "command": "be-human.resetTime",
         "title": "Reset Time Tracking"
-      },
-      {
-        "command": "be-human.pauseStart",
-        "title": "Pause Time Tracking"
-      },
-      {
-        "command": "be-human.pauseStop",
-        "title": "Resume Time Tracking"
       }
     ],
     "configuration": {
@@ -46,9 +38,31 @@
         "default": 60,
         "description": "command sets alert time interval in minutes"
         }
+
+      }
+
+    }
+  },
+
+
+    ],
+
+    "configuration": {
+  
+      "title": "be-human",
+      "properties": {
+      "be-human.timeInterval": {
+        
+        "type": "number",
+        "default": 60,
+        "description": "command sets alert time interval in minutes"
+      
+        }
+
       }
     }
   },
+
 
   "scripts": {
     "lint": "eslint .",

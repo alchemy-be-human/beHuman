@@ -12,42 +12,52 @@ const activate = async (context) => {
 	const timeInterval = Number(vscode.workspace.getConfiguration("be-human").get("timeInterval"))
 			// changed 15 to "timeInterval"
 	const timeIncrement = (oneMinute * timeInterval);
-	let startTime = new Date();
-	const localTime = startTime.toLocaleTimeString();
+
+
+	let startTime = Date.now();
+	let intervalId = null;
+	// const localTime = startTime.toLocaleTimeString();
 
 	const response = await vscode.window.showInformationMessage('Welcome to beHuman! Would you like to be reminded to take breaks today?', 'Yes', 'No');
 	
 	if(response === 'Yes') {
 		vscode.window.showInformationMessage('Have a great day!');
-		
-		setInterval(() => {
-			const lapTime = new Date();
+		intervalId = setInterval(() => {
+			const lapTime = Date.now();
 			const incrementOfTime = Math.round((lapTime - startTime) / 60000);
 
 			vscode.window.showInformationMessage(`You have been working for ${incrementOfTime} minutes.`, 'Disable');
-
 		}, timeIncrement)
-
 	} else if(response === 'No'){ 
 		vscode.window.showInformationMessage('Let\'s try again tomorrow!');
 	}
-
-	console.log('Congratulations, your extension "be-human" is now active!');
-
 	let disposable = vscode.commands.registerCommand('be-human.helloWorld', function () {
-
 		vscode.window.showInformationMessage('Welcome to beHuman!');
 	});
 
-	let trackTime = vscode.commands.registerCommand('be-human.trackTime', function () {
+//USED FOR TESTING ONLY????
+	// let trackTime = vscode.commands.registerCommand('be-human.trackTime', function () {
+
 
 		setInterval(() => {
 			const lapTime = new Date();
 			const incrementOfTime = Math.round((lapTime - startTime) / 60000);
 
-			vscode.window.showInformationMessage(`You have been working for ${incrementOfTime} minutes. (This pops up every three seconds...Enjoy!)`);
-		}, 3000)
-	})
+
+	    // THIS IS WHERE STOP WATCH USER COMMAND FUNCTIONS BEGIN
+
+    let resetTimer = vscode.commands.registerCommand('be-human.resetTime', function () {
+		clearInterval(intervalId);
+
+		intervalId = setInterval(() => {
+			const lapTime = Date.now();
+			const incrementOfTime = Math.round((lapTime - startTime) / 60000);
+			vscode.window.showInformationMessage(`You have been working for ${incrementOfTime} minutes.`, 'Disable');
+		}, timeIncrement)
+
+
+		 return resetTimer
+    });
 
 	    // THIS IS WHERE STOP WATCH USER COMMAND FUNCTIONS BEGIN
 
@@ -61,9 +71,8 @@ const activate = async (context) => {
 
 
 	context.subscriptions.push(disposable);
-	context.subscriptions.push(trackTime);
+	context.subscriptions.push(resetTimer);
 }
-exports.activate = activate;
 
 function deactivate() {}
 
