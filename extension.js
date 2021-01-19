@@ -14,7 +14,6 @@ const activate = async (context) => {
 	const timeIncrement = (oneMinute * timeInterval);
 	let startTime = new Date();
 	const localTime = startTime.toLocaleTimeString();
-	
 
 	const response = await vscode.window.showInformationMessage('Welcome to beHuman! Would you like to be reminded to take breaks today?', 'Yes', 'No');
 	
@@ -24,7 +23,6 @@ const activate = async (context) => {
 		setInterval(() => {
 			const lapTime = new Date();
 			const incrementOfTime = Math.round((lapTime - startTime) / 60000);
-			
 
 			vscode.window.showInformationMessage(`You have been working for ${incrementOfTime} minutes.`, 'Disable');
 
@@ -45,9 +43,7 @@ const activate = async (context) => {
 
 		setInterval(() => {
 			const lapTime = new Date();
-
 			const incrementOfTime = Math.round((lapTime - startTime) / 60000);
-			
 
 			vscode.window.showInformationMessage(`You have been working for ${incrementOfTime} minutes. (This pops up every three seconds...Enjoy!)`);
 		}, 3000)
