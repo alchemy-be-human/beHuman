@@ -27,14 +27,6 @@
       {
         "command": "be-human.resetTime",
         "title": "Reset Time Tracking"
-      },
-      {
-        "command": "be-human.pauseStart",
-        "title": "Pause Time Tracking"
-      },
-      {
-        "command": "be-human.pauseStop",
-        "title": "Resume Time Tracking"
       }
     ],
     "configuration": {
