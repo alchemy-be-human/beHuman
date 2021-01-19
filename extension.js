@@ -52,23 +52,11 @@ const activate = async (context) => {
 			const lapTime = Date.now();
 			const incrementOfTime = Math.round((lapTime - startTime) / 60000);
 			vscode.window.showInformationMessage(`You have been working for ${incrementOfTime} minutes.`, 'Disable');
-
 		}, timeIncrement)
 
 		 return resetTimer
     });
 
-	// let stopTimer = vscode.commands.registerCommand('be-human.startTime', function () {
-	// 	startTime = new Date();
-		
-	// 	return stopTimer
-	// });
-
-	//  let startTimer = vscode.commands.registerCommand('be-human.startTime', function () {
-	// 		startTime = new Date();
-
-	// 		return startTimer
-	// 	});
 	context.subscriptions.push(disposable);
 	context.subscriptions.push(resetTimer);
 }
