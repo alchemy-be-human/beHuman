@@ -15,6 +15,23 @@ const activate = async (context) => {
 
 	let startTime = Date.now();
 	let intervalId = null;
+
+async function intervalIdFunction(){
+	return await setInterval(async() => {
+		const lapTime = Date.now();
+		const incrementOfTime = Math.round((lapTime - startTime) / 60000);
+		const convertedTime = convertTime(incrementOfTime);
+		
+		const randomTip = await fetch.get(`${URL}/tips/random`);
+
+		const userChoice = await vscode.window.showInformationMessage(`You have been working for ${convertedTime}. Quick tip: ${randomTip.body.tip} Have time for a short break?`, 'Move your body', 'Not this time');
+
+		if (userChoice === 'Move your body') {
+			const randomLink = await fetch.get(`${URL}/api/v1/links/random`)
+			vscode.env.openExternal(vscode.Uri.parse(`${randomLink.body.url}`));
+		}
+	}, 600000)
+}
 	// const localTime = startTime.toLocaleTimeString();
 
 	const response = await vscode.window.showInformationMessage('Welcome to beHuman! Would you like to be reminded to take breaks today?', 'Yes', 'No');
@@ -22,22 +39,8 @@ const activate = async (context) => {
 	if(response === 'Yes') {
 		vscode.window.showInformationMessage('Have a great day!');
 
-		intervalId = setInterval(async() => {
-			const lapTime = Date.now();
-			const incrementOfTime = Math.round((lapTime - startTime) / 60000);
-			const convertedTime = convertTime(incrementOfTime);
-			
-			// CHANGE TO HEROKU
-			const randomTip = await fetch.get(`${URL}/tips/random`);
-
-			const userChoice = await vscode.window.showInformationMessage(`You have been working for ${convertedTime}. Quick tip: ${randomTip.body.tip} Have time for a short break?`, 'Move your body', 'Not this time');
-
-			if (userChoice === 'Move your body') {
-				const randomLink = await fetch.get(`${URL}/api/v1/links/random`)
-				vscode.env.openExternal(vscode.Uri.parse(`${randomLink.body.url}`));
-			}
-		}, 600000)
-
+		intervalId = intervalIdFunction();
+	
 	} else if(response === 'No'){ 
 		vscode.window.showInformationMessage('Let\'s try again tomorrow!');
 	}
@@ -47,21 +50,7 @@ const activate = async (context) => {
 
 		vscode.window.showInformationMessage('You have reset your time.');
 
-		intervalId = setInterval(async() => {
-			const lapTime = Date.now();
-			const incrementOfTime = Math.round((lapTime - startTime) / 60000);
-			const convertedTime = convertTime(incrementOfTime);
-			
-			const randomTip = await fetch.get(`${URL}/api/v1/tips/random`);
-
-			const userChoice = await vscode.window.showInformationMessage(`You have been working for ${convertedTime}. Quick tip: ${randomTip.body.tip} Have time for a short break?`, 'Move your body', 'Not this time');
-
-			if (userChoice === 'Move your body') {
-				const randomLink = await fetch.get(`${URL}/api/v1/links/random`)
-				vscode.env.openExternal(vscode.Uri.parse(`${randomLink.body.url}`));
-			}
-		}, 600000)
-
+		intervalId = intervalIdFunction();
     });
 
 	// context.subscriptions.push(disposable);
