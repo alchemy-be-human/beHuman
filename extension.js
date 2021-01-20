@@ -28,16 +28,15 @@ const activate = async (context) => {
 			const convertedTime = convertTime(incrementOfTime);
 			
 			// CHANGE TO HEROKU
-			const randomTip = await fetch.get('http://localhost:7890/api/v1/tips/random');
+			const randomTip = await fetch.get('http://be-human-demo-staging.herokuapp.com/api/v1/tips/random');
 
 			const userChoice = await vscode.window.showInformationMessage(`You have been working for ${convertedTime}. Quick tip: ${randomTip.body.tip} Have time for a short break?`, 'Move your body', 'Not this time');
 
 			if (userChoice === 'Move your body') {
-				const randomLink = await fetch.get('http://localhost:7890/api/v1/links/random')
+				const randomLink = await fetch.get('http://be-human-demo-staging.herokuapp.com/api/v1/links/random')
 				vscode.env.openExternal(vscode.Uri.parse(`${randomLink.body.url}`));
 			}
-		}, 5000)
-		// timeIncrement
+		}, 60000)
 
 	} else if(response === 'No'){ 
 		vscode.window.showInformationMessage('Let\'s try again tomorrow!');
@@ -46,16 +45,26 @@ const activate = async (context) => {
     let resetTimer = vscode.commands.registerCommand('be-human.resetTime', function () {
 		clearInterval(intervalId);
 
-		intervalId = setInterval(() => {
+		vscode.window.showInformationMessage('You have reset your time.');
+
+		intervalId = setInterval(async() => {
 			const lapTime = Date.now();
 			const incrementOfTime = Math.round((lapTime - startTime) / 60000);
-			vscode.window.showInformationMessage(`You have been working for ${incrementOfTime} minutes.`, 'Disable');
-		}, timeIncrement)
+			const convertedTime = convertTime(incrementOfTime);
+			
+			const randomTip = await fetch.get('http://be-human-demo-staging.herokuapp.com/api/v1/tips/random');
 
-		 return resetTimer
+			const userChoice = await vscode.window.showInformationMessage(`You have been working for ${convertedTime}. Quick tip: ${randomTip.body.tip} Have time for a short break?`, 'Move your body', 'Not this time');
+
+			if (userChoice === 'Move your body') {
+				const randomLink = await fetch.get('http://be-human-demo-staging.herokuapp.com/api/v1/links/random')
+				vscode.env.openExternal(vscode.Uri.parse(`${randomLink.body.url}`));
+			}
+		}, 60000)
+
     });
 
-	context.subscriptions.push(disposable);
+	// context.subscriptions.push(disposable);
 	context.subscriptions.push(resetTimer);
 }
 

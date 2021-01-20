@@ -18,12 +18,16 @@
   "contributes": {
     "commands": [
       {
-        "command": "be-human.trackTime",
-        "title": "Time Tracking"
-      },
-      {
         "command": "be-human.resetTime",
         "title": "Reset Time Tracking"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "be-human.resetTime",
+        "key": "ctrl+alt+r",
+        "mac": "cmd+cmd+r",
+        "when": "editorTextFocus"
       }
     ],
     "configuration": {
@@ -34,16 +38,6 @@
           "default": 60,
           "description": "command sets alert time interval in minutes"
         }
-      }
-    }
-  },
-  "configuration": {
-    "title": "be-human",
-    "properties": {
-      "be-human.timeInterval": {
-        "type": "number",
-        "default": 60,
-        "description": "command sets alert time interval in minutes"
       }
     }
   },
