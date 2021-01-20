@@ -1,5 +1,6 @@
 const vscode = require('vscode');
 const fetch = require('superagent');
+const convertTime = require('./utils/convert-time');
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -24,12 +25,13 @@ const activate = async (context) => {
 		intervalId = setInterval(async() => {
 			const lapTime = Date.now();
 			const incrementOfTime = Math.round((lapTime - startTime) / 60000);
+			const convertedTime = convertTime(incrementOfTime);
 			
 			// CHANGE TO HEROKU
 			const randomTip = await fetch.get('http://localhost:7890/api/v1/tips/random');
 
 			// store as const and await. need to check if clicked
-			const response = await vscode.window.showInformationMessage(`You have been working for ${incrementOfTime} minutes. Quick tip: ${randomTip.body.tip} Have time for a short break?`, 'Move your body', 'Not this time');
+			const response = await vscode.window.showInformationMessage(`You have been working for ${convertedTime}. Quick tip: ${randomTip.body.tip} Have time for a short break?`, 'Move your body', 'Not this time');
 
 			if (response === 'Move your body') {
 				const randomLink = await fetch.get('http://localhost:7890/api/v1/links/random')
