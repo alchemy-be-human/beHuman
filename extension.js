@@ -11,7 +11,7 @@ const activate = async (context) => {
 
 	const timeInterval = Number(vscode.workspace.getConfiguration("be-human").get("timeInterval"))
 
-	const timeIncrement = (oneMinute * timeInterval);
+	const userTimeInterval = (oneMinute * timeInterval);
 
 	let startTime = Date.now();
 	let intervalId = null;
@@ -30,7 +30,7 @@ async function intervalIdFunction(){
 			const randomLink = await fetch.get(`${URL}/api/v1/links/random`)
 			vscode.env.openExternal(vscode.Uri.parse(`${randomLink.body.url}`));
 		}
-	}, 600000)
+	}, userTimeInterval)
 }
 	// const localTime = startTime.toLocaleTimeString();
 
@@ -53,7 +53,6 @@ async function intervalIdFunction(){
 		intervalId = intervalIdFunction();
     });
 
-	// context.subscriptions.push(disposable);
 	context.subscriptions.push(resetTimer);
 }
 
