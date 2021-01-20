@@ -5,6 +5,7 @@ const convertTime = require('./utils/convert-time');
 /**
  * @param {vscode.ExtensionContext} context
  */
+
 const activate = async (context) => {
 
 	const oneMinute = (1000 * 60)
@@ -16,6 +17,7 @@ const activate = async (context) => {
 	let startTime = Date.now();
 	let intervalId = null;
 	// const localTime = startTime.toLocaleTimeString();
+
 
 	const response = await vscode.window.showInformationMessage('Welcome to beHuman! Would you like to be reminded to take breaks today?', 'Yes', 'No');
 	
