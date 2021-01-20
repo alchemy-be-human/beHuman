@@ -30,10 +30,9 @@ const activate = async (context) => {
 			// CHANGE TO HEROKU
 			const randomTip = await fetch.get('http://localhost:7890/api/v1/tips/random');
 
-			// store as const and await. need to check if clicked
-			const response = await vscode.window.showInformationMessage(`You have been working for ${convertedTime}. Quick tip: ${randomTip.body.tip} Have time for a short break?`, 'Move your body', 'Not this time');
+			const userChoice = await vscode.window.showInformationMessage(`You have been working for ${convertedTime}. Quick tip: ${randomTip.body.tip} Have time for a short break?`, 'Move your body', 'Not this time');
 
-			if (response === 'Move your body') {
+			if (userChoice === 'Move your body') {
 				const randomLink = await fetch.get('http://localhost:7890/api/v1/links/random')
 				vscode.env.openExternal(vscode.Uri.parse(`${randomLink.body.url}`));
 			}
@@ -43,10 +42,6 @@ const activate = async (context) => {
 	} else if(response === 'No'){ 
 		vscode.window.showInformationMessage('Let\'s try again tomorrow!');
 	}
-
-	let disposable = vscode.commands.registerCommand('be-human.helloWorld', function () {
-		vscode.window.showInformationMessage('Welcome to beHuman!');
-	});
 
     let resetTimer = vscode.commands.registerCommand('be-human.resetTime', function () {
 		clearInterval(intervalId);

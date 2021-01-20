@@ -18,10 +18,6 @@
   "contributes": {
     "commands": [
       {
-        "command": "be-human.helloWorld",
-        "title": "Hello World"
-      },
-      {
         "command": "be-human.trackTime",
         "title": "Time Tracking"
       },
