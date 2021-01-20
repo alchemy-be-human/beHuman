@@ -36,7 +36,7 @@ const activate = async (context) => {
 				const randomLink = await fetch.get('http://be-human-demo-staging.herokuapp.com/api/v1/links/random')
 				vscode.env.openExternal(vscode.Uri.parse(`${randomLink.body.url}`));
 			}
-		}, 60000)
+		}, 600000)
 
 	} else if(response === 'No'){ 
 		vscode.window.showInformationMessage('Let\'s try again tomorrow!');
@@ -60,7 +60,7 @@ const activate = async (context) => {
 				const randomLink = await fetch.get('http://be-human-demo-staging.herokuapp.com/api/v1/links/random')
 				vscode.env.openExternal(vscode.Uri.parse(`${randomLink.body.url}`));
 			}
-		}, 60000)
+		}, 600000)
 
     });
 
