@@ -24,11 +24,18 @@ const activate = async (context) => {
 		intervalId = setInterval(async() => {
 			const lapTime = Date.now();
 			const incrementOfTime = Math.round((lapTime - startTime) / 60000);
-
+			
+			// CHANGE TO HEROKU
 			const randomTip = await fetch.get('http://localhost:7890/api/v1/tips/random');
 
-			vscode.window.showInformationMessage(`You have been working for ${incrementOfTime} minutes. ${randomTip.body.tip}`, 'OK');
-		}, 3000)
+			// store as const and await. need to check if clicked
+			const response = await vscode.window.showInformationMessage(`You have been working for ${incrementOfTime} minutes. Quick tip: ${randomTip.body.tip} Have time for a short break?`, 'Move your body', 'Not this time');
+
+			if (response === 'Move your body') {
+				const randomLink = await fetch.get('http://localhost:7890/api/v1/links/random')
+				vscode.env.openExternal(vscode.Uri.parse(`${randomLink.body.url}`));
+			}
+		}, 5000)
 		// timeIncrement
 
 	} else if(response === 'No'){ 
@@ -38,15 +45,6 @@ const activate = async (context) => {
 	let disposable = vscode.commands.registerCommand('be-human.helloWorld', function () {
 		vscode.window.showInformationMessage('Welcome to beHuman!');
 	});
-
-//USED FOR TESTING ONLY????
-	// let trackTime = vscode.commands.registerCommand('be-human.trackTime', function () {
-
-		// setInterval(() => {
-		// 	const lapTime = new Date();
-		// 	const incrementOfTime = Math.round((lapTime - startTime) / 60000);
-
-	    // THIS IS WHERE STOP WATCH USER COMMAND FUNCTIONS BEGIN
 
     let resetTimer = vscode.commands.registerCommand('be-human.resetTime', function () {
 		clearInterval(intervalId);
