@@ -48,6 +48,12 @@ Calling out known issues can help limit users opening duplicate issues against y
 
 Users appreciate release notes as you update your extension.
 
+### 0.1.3
+Test release repath logo so extension recognizes location.
+
+### 0.1.2
+Test release connects to the database and update logo.
+
 ### 0.1.1
 Test release to check display name.
 
