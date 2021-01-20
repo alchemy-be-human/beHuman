@@ -2,7 +2,7 @@
   "name": "be-human",
   "displayName": "beHuman",
   "description": "",
-  "icon": "./images/largeVector.png",
+  "icon": "largeVector.png",
   "version": "0.1.2",
   "publisher": "Not-Bot",
   "engines": {
