@@ -38,15 +38,9 @@
         "default": 60,
         "description": "command sets alert time interval in minutes"
         }
-
       }
-
     }
   },
-
-
-    ],
-
     "configuration": {
   
       "title": "be-human",
@@ -56,14 +50,9 @@
         "type": "number",
         "default": 60,
         "description": "command sets alert time interval in minutes"
-      
         }
-
       }
-    }
   },
-
-
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
