@@ -2,7 +2,7 @@
   "name": "be-human",
   "displayName": "beHuman",
   "description": "",
-  "icon" : "./images/largeVector.png",
+  "icon": "./images/largeVector.png",
   "version": "0.1.1",
   "publisher": "Not-Bot",
   "engines": {
@@ -18,40 +18,28 @@
   "contributes": {
     "commands": [
       {
-        "command": "be-human.helloWorld",
-        "title": "Hello World"
-      },
-      {
-        "command": "be-human.trackTime",
-        "title": "Time Tracking"
-      },
-      {
         "command": "be-human.resetTime",
         "title": "Reset Time Tracking"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "be-human.resetTime",
+        "key": "ctrl+alt+r",
+        "mac": "cmd+cmd+r",
+        "when": "editorTextFocus"
       }
     ],
     "configuration": {
       "title": "be-human",
       "properties": {
-      "be-human.timeInterval": {
-        "type": "number",
-        "default": 60,
-        "description": "command sets alert time interval in minutes"
+        "be-human.timeInterval": {
+          "type": "number",
+          "default": 60,
+          "description": "command sets alert time interval in minutes"
         }
       }
     }
-  },
-    "configuration": {
-  
-      "title": "be-human",
-      "properties": {
-      "be-human.timeInterval": {
-        
-        "type": "number",
-        "default": 60,
-        "description": "command sets alert time interval in minutes"
-        }
-      }
   },
   "scripts": {
     "lint": "eslint .",
@@ -70,6 +58,7 @@
     "vscode-test": "^1.4.1"
   },
   "dependencies": {
+    "superagent": "^6.1.0",
     "vsce": "^1.83.0"
   }
 }

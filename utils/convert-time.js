@@ -4,12 +4,14 @@ function convertTime(num) {
     const minutes = (hours - roundHours) * 60;
     const roundMinutes = Math.round(minutes);
 
-    if (num < 60) {
+    if (num < 60 && num !== 1) {
         return `${roundMinutes} minutes`
     } else if (num === 60) {
         return `${hours} hour`;
     } else if (num > 60) {
         return `${roundHours} hours and ${roundMinutes} minutes`
+    } else if (num === 1) {
+        return `${roundMinutes} minute`
     }
 
   }
