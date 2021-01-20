@@ -1,7 +1,7 @@
 const vscode = require('vscode');
 const fetch = require('superagent');
 const convertTime = require('./utils/convert-time');
-
+const URL = ('http://be-human-demo-staging.herokuapp.com/api')
 /**
  * @param {vscode.ExtensionContext} context
  */
@@ -28,12 +28,12 @@ const activate = async (context) => {
 			const convertedTime = convertTime(incrementOfTime);
 			
 			// CHANGE TO HEROKU
-			const randomTip = await fetch.get('http://be-human-demo-staging.herokuapp.com/api/v1/tips/random');
+			const randomTip = await fetch.get(`${URL}/tips/random`);
 
 			const userChoice = await vscode.window.showInformationMessage(`You have been working for ${convertedTime}. Quick tip: ${randomTip.body.tip} Have time for a short break?`, 'Move your body', 'Not this time');
 
 			if (userChoice === 'Move your body') {
-				const randomLink = await fetch.get('http://be-human-demo-staging.herokuapp.com/api/v1/links/random')
+				const randomLink = await fetch.get(`${URL}/api/v1/links/random`)
 				vscode.env.openExternal(vscode.Uri.parse(`${randomLink.body.url}`));
 			}
 		}, 600000)
@@ -52,12 +52,12 @@ const activate = async (context) => {
 			const incrementOfTime = Math.round((lapTime - startTime) / 60000);
 			const convertedTime = convertTime(incrementOfTime);
 			
-			const randomTip = await fetch.get('http://be-human-demo-staging.herokuapp.com/api/v1/tips/random');
+			const randomTip = await fetch.get(`${URL}/api/v1/tips/random`);
 
 			const userChoice = await vscode.window.showInformationMessage(`You have been working for ${convertedTime}. Quick tip: ${randomTip.body.tip} Have time for a short break?`, 'Move your body', 'Not this time');
 
 			if (userChoice === 'Move your body') {
-				const randomLink = await fetch.get('http://be-human-demo-staging.herokuapp.com/api/v1/links/random')
+				const randomLink = await fetch.get(`${URL}/api/v1/links/random`)
 				vscode.env.openExternal(vscode.Uri.parse(`${randomLink.body.url}`));
 			}
 		}, 600000)
