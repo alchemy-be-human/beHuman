@@ -12,7 +12,7 @@ const activate = async (context) => {
 
 	const timeInterval = Number(vscode.workspace.getConfiguration("be-human").get("timeInterval"))
 
-	const timeIncrement = (oneMinute * timeInterval);
+	const userTimeInterval = (oneMinute * timeInterval);
 
 	let startTime = Date.now();
 	let intervalId = null;
@@ -38,7 +38,7 @@ const activate = async (context) => {
 				const randomLink = await fetch.get('http://be-human-demo-staging.herokuapp.com/api/v1/links/random')
 				vscode.env.openExternal(vscode.Uri.parse(`${randomLink.body.url}`));
 			}
-		}, 600000)
+		}, userTimeInterval)
 
 	} else if(response === 'No'){ 
 		vscode.window.showInformationMessage('Let\'s try again tomorrow!');
@@ -62,11 +62,10 @@ const activate = async (context) => {
 				const randomLink = await fetch.get('http://be-human-demo-staging.herokuapp.com/api/v1/links/random')
 				vscode.env.openExternal(vscode.Uri.parse(`${randomLink.body.url}`));
 			}
-		}, 600000)
+		}, userTimeInterval)
 
     });
 
-	// context.subscriptions.push(disposable);
 	context.subscriptions.push(resetTimer);
 }
 
