@@ -25,7 +25,7 @@
     "keybindings": [
       {
         "command": "be-human.resetTime",
-        "key": "ctrl+fn+r",
+        "key": "ctrl+alt+shift+t",
         "mac": "ctrl+cmd+r"
       }
     ],
