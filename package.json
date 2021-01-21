@@ -3,7 +3,7 @@
   "displayName": "beHuman",
   "description": "",
   "icon": "largeVector.png",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "publisher": "Not-Bot",
   "engines": {
     "vscode": "^1.52.0"
@@ -36,7 +36,7 @@
         "be-human.timeInterval": {
           "type": "number",
           "default": 60,
-          "description": "command sets alert time interval in minutes"
+          "description": "command sets alert time interval in minutes (requires restart of VSCode)"
         }
       }
     }

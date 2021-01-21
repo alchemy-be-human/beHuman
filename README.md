@@ -48,6 +48,9 @@ Calling out known issues can help limit users opening duplicate issues against y
 
 Users appreciate release notes as you update your extension.
 
+### 0.1.4
+Test release to allow users to set custom alert time interval.
+
 ### 0.1.3
 Test release repath logo so extension recognizes location.
 
