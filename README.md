@@ -11,42 +11,36 @@ beHuman is a VSCode extension that reminds users to make healthy choices through
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-For example if there is an image subfolder under your extension project workspace:
-\!\[feature X\]\(images/feature-x.png\)
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+Upon installing and enabling the extension, users will be asked if they wish to be reminded to take breaks:
 
-## Requirements
+![welcome alert](feature-images/welcomeAlert.png)
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+If the user selects 'Yes,' alerts will be sent to them on the time increment chosen by the user (default is 60 minutes):
+
+![tip alert](feature-images/tipAlert.png)
+
+If the user clicks on "Move your body," they will be directed to an instructional video that incorporates body movements: 
+
+![YouTube screenshot](feature-images/youTubeExample.png)
+>Note: Please consult your physician or other health care professional before starting a fitness plan, including the instructional videos provided in this extension. If you have any concerns or questions about your health, you should always consult with a physician or other health-care professional.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-For example:
 This extension contributes the following settings:
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-
-## User Settings
-
-* Enter alert time increment in minutes
+* `be-human.timeInterval`: Enter alert time increment in minutes
 
 ## User Commands
 
-* 'be-human.resetTime' : reset time count
-
+* 'be-human.resetTime' : resets time tracked and begins incrementing from zero.
 
 ## Known Issues
 
-This is a test publication.
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Upon changing the alert time interval in settings, the user will need to restart VSCode for the new time to go into effect.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.1.5
+Test release to fix reset capabilities.
 
 ### 0.1.4
 Test release to allow users to set custom alert time interval.
