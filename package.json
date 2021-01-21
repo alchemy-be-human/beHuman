@@ -25,9 +25,8 @@
     "keybindings": [
       {
         "command": "be-human.resetTime",
-        "key": "ctrl+alt+r",
-        "mac": "ctrl+cmd+r",
-        "when": "editorTextFocus"
+        "key": "ctrl+fn+r",
+        "mac": "ctrl+cmd+r"
       }
     ],
     "configuration": {
