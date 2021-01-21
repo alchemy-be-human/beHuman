@@ -22,9 +22,19 @@ An alert will provide a mental wellness tip and the option to do a body movement
 This extension contributes the following settings:
 * `be-human.timeInterval`: Enter alert time increment in minutes
 
-## User Commands
+## User Terminal Commands
 
-* `be-human.resetTime` : Resets time tracked and begins incrementing from zero.
+* `be-human.resetTime` : Terminal command to reset time tracked. Begins incrementing from zero. 
+
+## User Keyboard Shortcuts
+
+* `cntrl+fn+r`: Mac User Reset Time
+* `cntrl+fn+r`:Windows User Reset Time
+
+## User Keyboard Shortcuts
+
+* Mac User Reset Time: ctrl+fn+j
+* Windows User Reset Time: ctrl+fn+j
 
 ## Known Issues
 
