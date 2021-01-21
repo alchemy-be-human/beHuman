@@ -1,7 +1,7 @@
 const vscode = require('vscode');
 const fetch = require('superagent');
 const convertTime = require('./utils/convert-time');
-const URL = ('http://be-human-demo-staging.herokuapp.com/api')
+const URL = ('http://be-human-demo-staging.herokuapp.com')
 /**
  * @param {vscode.ExtensionContext} context
  */
@@ -22,7 +22,7 @@ async function intervalIdFunction(){
 		const incrementOfTime = Math.round((lapTime - startTime) / 60000);
 		const convertedTime = convertTime(incrementOfTime);
 		
-		const randomTip = await fetch.get(`${URL}/tips/random`);
+		const randomTip = await fetch.get(`${URL}/api/v1/tips/random`);
 
 		const userChoice = await vscode.window.showInformationMessage(`You have been working for ${convertedTime}. Quick tip: ${randomTip.body.tip} Have time for a short break?`, 'Move your body', 'Not this time');
 
@@ -32,7 +32,6 @@ async function intervalIdFunction(){
 		}
 	}, userTimeInterval)
 }
-	// const localTime = startTime.toLocaleTimeString();
 
 	const response = await vscode.window.showInformationMessage('Welcome to beHuman! Would you like to be reminded to take breaks today?', 'Yes', 'No');
 	
@@ -47,6 +46,8 @@ async function intervalIdFunction(){
 
     let resetTimer = vscode.commands.registerCommand('be-human.resetTime', function () {
 		clearInterval(intervalId);
+		clearInterval(startTime);
+		startTime = Date.now();
 
 		vscode.window.showInformationMessage('You have reset your time.');
 
