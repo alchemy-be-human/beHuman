@@ -11,17 +11,10 @@ beHuman is a VSCode extension that reminds users to make healthy choices through
 
 ## Features
 
-Upon installing and enabling the extension, users will be asked if they wish to be reminded to take breaks:
+Upon installing and enabling the extension, users will be asked if they wish to be reminded to take breaks. If the user selects 'Yes,' alerts will be sent to them on the time increment chosen by the user (default is 60 minutes). 
 
-![welcome alert](https://imgur.com/if9uBdc)
+An alert will provide a mental wellness tip and the option to do a body movement.  If the user clicks on "Move your body," they will be directed to an instructional video that incorporates body movements.
 
-If the user selects 'Yes,' alerts will be sent to them on the time increment chosen by the user (default is 60 minutes):
-
-![tip alert](https://imgur.com/6i7SH33)
-
-If the user clicks on "Move your body," they will be directed to an instructional video that incorporates body movements: 
-
-![YouTube screenshot](https://imgur.com/SWXOej1)
 >Note: Please consult your physician or other health care professional before starting a fitness plan, including the instructional videos provided in this extension. If you have any concerns or questions about your health, you should always consult with a physician or other health-care professional.
 
 ## Extension Settings
@@ -31,7 +24,7 @@ This extension contributes the following settings:
 
 ## User Commands
 
-* 'be-human.resetTime' : resets time tracked and begins incrementing from zero.
+* `be-human.resetTime` : Resets time tracked and begins incrementing from zero.
 
 ## Known Issues
 
@@ -39,7 +32,7 @@ Upon changing the alert time interval in settings, the user will need to restart
 
 ## Release Notes
 
-### 0.1.7
+### 0.1.8
 Test release to fix reset capabilities.
 
 ### 0.1.4
