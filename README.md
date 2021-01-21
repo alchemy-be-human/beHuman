@@ -33,10 +33,14 @@ This extension contributes the following settings:
 
 * Enter alert time increment in minutes
 
-## User Commands
+## User Terminal Commands
 
-* 'be-human.resetTime' : reset time count
+* Terminal command to reset time count: be-human.resetTime
 
+## User Keyboard Shortcuts
+
+* Mac User Reset Time: cntrl+fn+j
+* Windows User Reset Time: cntrl+fn+j
 
 ## Known Issues
 
