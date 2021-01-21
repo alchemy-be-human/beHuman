@@ -3,7 +3,7 @@
   "displayName": "beHuman",
   "description": "",
   "icon": "largeVector.png",
-  "version": "0.1.3",
+  "version": "0.1.7",
   "publisher": "Not-Bot",
   "engines": {
     "vscode": "^1.52.0"
@@ -25,9 +25,8 @@
     "keybindings": [
       {
         "command": "be-human.resetTime",
-        "key": "ctrl+alt+r",
-        "mac": "ctrl+cmd+r",
-        "when": "editorTextFocus"
+        "key": "ctrl+fn+r",
+        "mac": "ctrl+cmd+r"
       }
     ],
     "configuration": {
@@ -36,7 +35,7 @@
         "be-human.timeInterval": {
           "type": "number",
           "default": 60,
-          "description": "command sets alert time interval in minutes"
+          "description": "command sets alert time interval in minutes (requires restart of VSCode)"
         }
       }
     }
