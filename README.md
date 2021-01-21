@@ -24,7 +24,12 @@ This extension contributes the following settings:
 
 ## User Terminal Commands
 
-* `be-human.resetTime` : Resets time tracked and begins incrementing from zero.
+* `be-human.resetTime` : Terminal command to reset time tracked. Begins incrementing from zero. 
+
+## User Keyboard Shortcuts
+
+* `cntrl+fn+r`: Mac User Reset Time
+* `cntrl+fn+r`:Windows User Reset Time
 
 ## User Keyboard Shortcuts
 
