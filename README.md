@@ -39,8 +39,8 @@ This extension contributes the following settings:
 
 ## User Keyboard Shortcuts
 
-* Mac User Reset Time: cntrl+fn+j
-* Windows User Reset Time: cntrl+fn+j
+* Mac User Reset Time: cntrl+fn+r
+* Windows User Reset Time: cntrl+fn+r
 
 ## Known Issues
 
