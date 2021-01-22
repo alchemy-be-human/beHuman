@@ -3,7 +3,7 @@
   "displayName": "beHuman",
   "description": "",
   "icon": "largeVector.png",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "Not-Bot",
   "engines": {
     "vscode": "^1.52.0"
