@@ -28,7 +28,7 @@ This extension contributes the following settings:
 
 ## User Keyboard Shortcuts
 
-* `ctrl+alt+shift+t`:Windows User Reset Time
+* `ctrl+alt+shift+t`: Windows User Reset Time
 * `ctrl+cmd+r`: Mac User Reset Time
 
 ## Known Issues
