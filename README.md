@@ -31,12 +31,6 @@ This extension contributes the following settings:
 * `ctrl+alt+shift+t`:Windows User Reset Time
 * `ctrl+cmd+r`: Mac User Reset Time
 
-
-## User Keyboard Shortcuts
-
-* Mac User Reset Time: ctrl+fn+j
-* Windows User Reset Time: ctrl+fn+j
-
 ## Known Issues
 
 Upon changing the alert time interval in settings, the user will need to restart VSCode for the new time to go into effect.
