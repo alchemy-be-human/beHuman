@@ -1,0 +1,63 @@
+{
+  "name": "be-human",
+  "displayName": "beHuman",
+  "description": "",
+  "icon": "largeVector.png",
+  "version": "0.1.9",
+  "publisher": "Not-Bot",
+  "engines": {
+    "vscode": "^1.52.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "be-human.resetTime",
+        "title": "Reset Time Tracking"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "be-human.resetTime",
+        "key": "ctrl+alt+shift+t",
+        "mac": "ctrl+cmd+r"
+      }
+    ],
+    "configuration": {
+      "title": "be-human",
+      "properties": {
+        "be-human.timeInterval": {
+          "type": "number",
+          "default": 60,
+          "description": "command sets alert time interval in minutes (requires restart of VSCode)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.52.0",
+    "eslint": "^7.15.0",
+    "glob": "^7.1.6",
+    "mocha": "^8.1.3",
+    "typescript": "^4.1.2",
+    "vscode-test": "^1.4.1"
+  },
+  "dependencies": {
+    "superagent": "^6.1.0",
+    "vsce": "^1.83.0"
+  }
+}
