@@ -43,6 +43,9 @@ Upon changing the alert time interval in settings, the user will need to restart
 
 ## Release Notes
 
+### 0.1.9
+Final test release for keybinding.
+
 ### 0.1.8
 Test release to fix reset capabilities.
 
