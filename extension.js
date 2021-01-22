@@ -1,7 +1,7 @@
 const vscode = require('vscode');
 const fetch = require('superagent');
 const convertTime = require('./utils/convert-time');
-const URL = 'http://be-human-demo-staging.herokuapp.com';
+const URL = 'http://be-human-demo.herokuapp.com';
 
 /**
  * @param {vscode.ExtensionContext} context
