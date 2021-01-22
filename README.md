@@ -37,5 +37,8 @@ Upon changing the alert time interval in settings, the user will need to restart
 
 ## Release Notes
 
+### 1.0.1
+This release resolves reset issue of clearing previous prompts.
+
 ### 1.0.0
 Initial release.
