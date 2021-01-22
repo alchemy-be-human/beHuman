@@ -17,7 +17,7 @@ const activate = async (context) => {
 	let intervalId = null;
 
 	async function intervalIdFunction(){
-		return await setInterval(async() => {
+		intervalId = await setInterval(async() => {
 			const lapTime = Date.now();
 			const incrementOfTime = Math.round((lapTime - startTime) / 60000);
 			const convertedTime = convertTime(incrementOfTime);
@@ -44,7 +44,6 @@ const activate = async (context) => {
 
     let resetTimer = vscode.commands.registerCommand('be-human.resetTime', function () {
 		clearInterval(intervalId);
-		clearInterval(startTime);
 		startTime = Date.now();
 
 		vscode.window.showInformationMessage('You have reset your time.');
